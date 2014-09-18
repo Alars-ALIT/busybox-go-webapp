@@ -1,11 +1,11 @@
-NAME=tiny-go-webapp
+NAME=busybox-go-webapp
 HARDWARE=$(shell uname -m)
 VERSION=0.0.1
 
 build:
 	mkdir -p stage
-	go build -o stage/tiny-go-webapp
-	docker build -t tiny-go-webapp .
+	go build -o stage/busybox-go-webapp
+	docker build -t busybox-go-webapp .
 
 release:
 	rm -rf release

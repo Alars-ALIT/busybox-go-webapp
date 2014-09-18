@@ -1,6 +1,6 @@
 FROM progrium/busybox
 MAINTAINER Andreas Larsson
 
-ADD ./stage/tiny-go-webapp /bin/tiny-go-webapp
+ADD ./stage/busybox-go-webapp /bin/busybox-go-webapp
 
-ENTRYPOINT ["/bin/tiny-go-webapp"]
+ENTRYPOINT ["/bin/busybox-go-webapp"]
