@@ -13,5 +13,5 @@ func handler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/", handler)
 	http.ListenAndServe(":8080", nil)
-	fmt.Println("Started app at :8080")
+	fmt.Println("Sttarted app at :8080")
 }
