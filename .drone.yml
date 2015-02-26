@@ -7,9 +7,7 @@ script:
   - mkdir -p stage
   - pwd
   - GOOS=linux go build -o stage/busybox-go-webapp
-  - docker build -t busybox-go-webapp .
-  #- cp stage/busybox-go-webapp /tmp/apps/busybox-go-webapp-test
-  
+
 deploy:  
   bash:
     script:
