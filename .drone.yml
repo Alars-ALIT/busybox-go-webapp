@@ -5,4 +5,9 @@ script:
   - go test -v
   - mkdir -p stage
   - pwd
-  - go build -o stage/busybox-go-webapp
+  - GOOS=linux go build -o stage/busybox-go-webapp
+  - cp stage/busybox-go-webapp /tmp/apps/busybox-go-webapp-test
+
+docker:
+  volumes:
+    - /tmp/apps:/tmp/apps
