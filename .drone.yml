@@ -11,6 +11,6 @@ script:
 deploy:  
   bash:
     script:
+      - tar --ignore-failed-read --exclude=".drone" --exclude=".git" --exclude="*.tar.gz"  -zcvf busybox-go-webapp.tar.gz .
       - chmod 600 ./.drone/id_rsa
-      - tar --exclude=".drone" --exclude=".git" --exclude="*.tar.gz" -zcvf busybox-go-webapp.tar.gz .
       - scp -i ./.drone/id_rsa busybox-go-webapp.tar.gz deployer@10.1.1.3:/tmp/apps/
