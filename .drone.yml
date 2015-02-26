@@ -5,7 +5,7 @@ env:
 script:
   - go test -v
   - mkdir -p stage
-  - pwd
+  - ls -la
   - GOOS=linux go build -o stage/busybox-go-webapp
   - tar --ignore-failed-read --exclude=".drone" --exclude=".git" --exclude="*.tar.gz"  -zcvf busybox-go-webapp.tar.gz .
 
