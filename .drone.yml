@@ -1,0 +1,5 @@
+image: go1.2
+env:
+  - GOPATH=/var/cache/drone
+script:
+  - go test -v
