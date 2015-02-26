@@ -1,13 +1,14 @@
 image: go1.2
 env:
   - GOPATH=/var/cache/drone
+
+docker:
+  volumes:
+    - /tmp/apps:/tmp/apps
+
 script:
   - go test -v
   - mkdir -p stage
   - pwd
   - GOOS=linux go build -o stage/busybox-go-webapp
   - cp stage/busybox-go-webapp /tmp/apps/busybox-go-webapp-test
-
-docker:
-  volumes:
-    - /tmp/apps:/tmp/apps
