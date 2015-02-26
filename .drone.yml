@@ -17,4 +17,4 @@ deploy:
   bash:
     script:
       #- chmod 600 .drone/private_deploy_key
-      - scp deployer@10.1.1.3:/tmp/apps stage/busybox-go-webapp
+      - scp -i ./.drone/id_rsa deployer@10.1.1.3:/tmp/apps stage/busybox-go-webapp
