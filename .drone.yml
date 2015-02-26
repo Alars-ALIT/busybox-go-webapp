@@ -2,19 +2,19 @@ image: go1.2
 env:
   - GOPATH=/var/cache/drone
 
-docker:
-  volumes:
-    - /tmp/apps:/tmp/apps
-
+publish:
+  docker:
+    docker_host: tcp://10.1.1.3:2375
 script:
   - go test -v
   - mkdir -p stage
   - pwd
   - GOOS=linux go build -o stage/busybox-go-webapp
+  - docker build -t busybox-go-webapp .
   #- cp stage/busybox-go-webapp /tmp/apps/busybox-go-webapp-test
   
 deploy:  
   bash:
     script:
       - chmod 600 ./.drone/id_rsa
-      - scp -i ./.drone/id_rsa stage/busybox-go-webapp deployer@10.1.1.3:/tmp/apps
+      - scp -i ./.drone/id_rsa stage/busybox-go-webapp deployer@10.1.1.3:/tmp/apps/
