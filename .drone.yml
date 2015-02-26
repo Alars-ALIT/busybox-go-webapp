@@ -3,4 +3,6 @@ env:
   - GOPATH=/var/cache/drone
 script:
   - go test -v
-  - make build
+  - mkdir -p stage
+  - pwd
+  - go build -o stage/busybox-go-webapp
